@@ -1,11 +1,5 @@
-/* Bina-Sanad-View v1.2.2 | coherent sidebar theme, compact document picker,
+/* Bina-Sanad-View v1.2.47 | shared BINA form standard, compact document picker,
    and unobtrusive navigation icons. Grid component and its theme are unchanged. */
-@font-face {
-  font-family: "IRANYekanX";
-  src: url("../IRANYekanX-Light.ttf") format("truetype");
-  font-weight: 300 700;
-  font-display: swap;
-}
 :root {
   color-scheme: light;
   --sb-page: color-mix(in srgb, var(--palette-color) 7%, #f4f6f8);
@@ -63,7 +57,7 @@ html[data-theme="dark"] {
 }
 * { box-sizing: border-box; }
 html, body { height: 100%; margin: 0; }
-body { font: 13px "IRANYekanX", Tahoma, sans-serif; color:var(--sb-text); background:var(--sb-page); }
+body { font: 13px "BinaForm-IRANYekanX", Tahoma, sans-serif; color:var(--sb-text); background:var(--sb-page); }
 button, input, select { font: inherit; }
 button { cursor:pointer; }
 button:disabled, select:disabled { cursor:not-allowed; opacity:.58; }
@@ -127,21 +121,22 @@ html[dir="ltr"] .sb-navigation { margin-left:auto; }
 .sb-navigation button:hover:not(:disabled) svg { transform:translateY(-1px); }
 .sb-navigation button:focus-visible { outline:2px solid var(--sb-heading); outline-offset:1px; }
 .sb-navigation button:disabled svg { opacity:.5; filter:none; }
-.sb-grid-panel { background:var(--sb-surface); flex:1 1 auto; min-height:125px; border:1px solid var(--sb-border); padding:3px; overflow:hidden; }
+.sb-grid-panel { background:var(--sb-surface); flex:1 1 auto; min-height:125px; border:0; padding:0; overflow:hidden; }
 .sb-grid { width:100%; height:100%; }
-.sb-grid .bina-grid { height:100%; display:flex; flex-direction:column; background:var(--sb-surface); color:var(--sb-text); }
+.sb-grid .bina-grid { --bina-grid-frame:var(--sb-border); height:100%; display:flex; flex-direction:column; background:var(--sb-surface); color:var(--sb-text); }
 .sb-grid .bina-wrap { flex:1 1 auto; min-height:0; }
 .sb-grid .tabulator { font-family:inherit; background:var(--sb-surface); color:var(--sb-text); font-size:13px; border-color:var(--sb-border); }
-.sb-grid .tabulator-header, .sb-grid .tabulator-col {
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-header,
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-col {
   background:var(--sb-heading) !important; color:var(--sb-heading-text) !important;
   border-color:var(--sb-border) !important;
 }
-.sb-grid .tabulator-col-title { color:var(--sb-heading-text); }
-.sb-grid .tabulator-row { background:var(--sb-row-odd); color:var(--sb-text); border-color:var(--sb-border); }
-.sb-grid .tabulator-row:nth-child(even) { background:var(--sb-row-even); }
-.sb-grid .tabulator-row:hover { background:var(--sb-hover); }
-.sb-grid .tabulator-footer { background:var(--sb-toolbar); color:var(--sb-text); border-color:var(--sb-border); }
-.sb-grid .tabulator-page, .sb-grid .tabulator-page-size { color:var(--sb-text); background:var(--sb-input); border-color:var(--sb-border); }
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-col-title { color:var(--sb-heading-text); }
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-row { background:var(--sb-row-odd); color:var(--sb-text); border-color:var(--sb-border); }
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-row:nth-child(even) { background:var(--sb-row-even); }
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-row:hover { background:var(--sb-hover); }
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-footer { background:var(--sb-toolbar); color:var(--sb-text); border-color:var(--sb-border); }
+.sb-grid .bina-grid:not(.bina-themed) .tabulator-page, .sb-grid .bina-grid:not(.bina-themed) .tabulator-page-size { color:var(--sb-text); background:var(--sb-input); border-color:var(--sb-border); }
 /* Compact document summary. The first grid area follows inline-start:
    right for fa/ar (RTL), left for en (LTR). */
 .sb-footer {
